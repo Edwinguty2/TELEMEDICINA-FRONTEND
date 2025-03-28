@@ -26,4 +26,48 @@ body {
   button:hover {
     background-color: #0056b3;
   }
+
+  .home-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  .card-module {
+    background-color: #00b0f0;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-module h3 {
+    font-size: 1.5rem;
+  }
+  
+  .card-module p {
+    font-size: 1rem;
+  }
+  
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-module a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #005b76;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
   
