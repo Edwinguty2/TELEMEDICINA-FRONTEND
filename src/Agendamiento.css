@@ -6,7 +6,7 @@
   align-items: center;
   min-height: 100vh;
   background-color: #f7f7f7;
-  padding: 20px;
+  padding: 0px;
 }
 
 /* Estilo para el header que contiene el título */
@@ -16,8 +16,7 @@ header {
   padding: 20px;
   text-align: center;
   color: white; /* Texto blanco */
-  border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
-  margin-bottom: 30px; /* Aumentamos el margen inferior */
+  margin-bottom: 50px; /* Aumentamos el margen inferior */
 }
 
 /* Estilo del título dentro del header */
