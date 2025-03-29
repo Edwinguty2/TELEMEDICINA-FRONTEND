@@ -94,6 +94,22 @@ const ProfilePage = () => {
             </div>
           </div>
         );
+        case 'Historia Clínica':
+          return (
+            <div>
+              <h2>Historia Clínica</h2>
+              <div className="history-box">
+                <p>
+                  El paciente presenta un historial médico que incluye antecedentes de hipertensión arterial y diabetes tipo 2. 
+                  Durante los últimos años, ha recibido tratamiento farmacológico para el control de ambas condiciones, 
+                  con resultados favorables. En su última consulta, se reportaron niveles de glucosa en sangre dentro del rango normal, 
+                  aunque se recomendó mantener una dieta equilibrada y realizar actividad física moderada al menos tres veces por semana. 
+                  Además, se identificó un episodio reciente de infección respiratoria tratada con antibióticos, sin complicaciones posteriores. 
+                  No se reportan alergias conocidas ni cirugías previas. El paciente continúa bajo seguimiento médico regular para el control de sus condiciones crónicas.
+                </p>
+              </div>
+            </div>
+      );
       default:
         return null;
     }

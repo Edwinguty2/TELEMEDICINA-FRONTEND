@@ -1,0 +1,113 @@
+.videoCallContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+.header {
+  background-color: #007bff; /* Azul */
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.appointmentsBox {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto; /* Centra el recuadro */
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column; /* Muestra las citas como una lista vertical */
+  gap: 15px; /* Espaciado entre las citas */
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cardBody {
+  font-size: 14px;
+  color: #333;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.joinButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.joinButton:hover {
+  background-color: #0056b3;
+}
+
+.backButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.backButton:hover {
+  background-color: #0056b3;
+}
+
+.noAppointments {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+  margin-top: 20px;
+}
