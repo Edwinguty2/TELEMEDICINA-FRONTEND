@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CardModule from '../components/CardModule';
+import '../Home.css'; // Importamos los estilos específicos
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -14,31 +15,32 @@ const HomePage = () => {
 
   return (
     <div className="home-container">
-      <h1>Bienvenido a la Oficina Virtual</h1>
-      <p>Cédula del usuario: {cedula}</p> {/* Muestra la cédula */}
-      <button className="logout-btn" onClick={handleLogout}>
-        Cerrar sesión
-      </button>
+      <header>
+        <h1>Bienvenido a la Oficina Virtual</h1>
+      </header>
       <div className="card-container">
-        <CardModule 
+        <CardModule
           title="Agendamiento"
           description="Solicita tus citas médicas de forma rápida y sencilla."
           link="/appointments"
           icon="📅"
         />
-        <CardModule 
+        <CardModule
           title="Perfil"
-          description="Gestiona tu información personal."
+          description="Observa y gestiona tu información personal."
           link="/profile"
           icon="👤"
         />
-        <CardModule 
+        <CardModule
           title="Videollamada"
           description="Conéctate con un médico por videollamada."
           link="/video-call"
           icon="💻"
         />
       </div>
+      <button className="logout-btn" onClick={handleLogout}>
+         Cerrar sesión
+      </button>
     </div>
   );
 };
