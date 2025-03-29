@@ -1,126 +1,141 @@
 /* Estilos generales */
 .video-call-sim-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .video-call-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  .doctor-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
-  .doctor-video {
-    width: 300px;
-    height: 300px;
-    background-color: #d3d3d3;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .doctor-video img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
-  }
-  
-  .doctor-name {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .chat-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 300px;
-    height: 400px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .messages {
-    overflow-y: scroll;
-    flex: 1;
-    margin-bottom: 10px;
-  }
-  
-  .message {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #e6f7ff;
-  }
-  
-  .message.paciente {
-    background-color: #cce7ff;
-    text-align: left;
-  }
-  
-  .message.doctor {
-    background-color: #e6ffe6;
-    text-align: right;
-  }
-  
-  .chat-input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .chat-input input {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .chat-input button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .chat-input button:hover {
-    background-color: #0056b3;
-  }
-  
-  .hang-up-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .hang-up-button:hover {
-    background-color: #e60000;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+}
+
+.video-call-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 2;
+  margin-right: 20px;
+}
+
+.doctor-video img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.doctor-name {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.patient-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 2;
+  margin-left: 20px;
+}
+
+.patient-video {
+  width: 100%;
+  height: 400px;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.patient-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.patient-name {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.patient-cedula {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.control-button {
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  width: 60px;
+  height: 60px;
+}
+
+.control-button:hover {
+  background-color: #0056b3;
+}
+
+.chat-box {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hang-up-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hang-up-button {
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 200px;
+}
+
+.hang-up-button:hover {
+  background-color: #e60000;
+}
+
+.no-video {
+  font-size: 18px;
+  color: #aaa;
+  font-weight: bold;
+  text-align: center;
+}
