@@ -12,6 +12,11 @@ const AppointmentPage = () => {
     try {
       const response = await axios.post('http://localhost:8080/api/appointments', data);
       setAppointment(response.data);
+
+      // Redirigir al menú principal después de agendar la cita
+      setTimeout(() => {
+        navigate('/'); // Redirige a la página principal
+      }, 15000); // Espera 15 segundos antes de redirigir al menú
     } catch (error) {
       console.error('Error al agendar la cita:', error);
       alert('Error al agendar la cita');
