@@ -1,0 +1,138 @@
+/* Estilos para el contenedor principal de la página de agendamiento */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea el contenido al principio */
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+/* Estilo para el header que contiene el título */
+header {
+  background-color: #007bff; /* Azul */
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: white; /* Texto blanco */
+  border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+  margin-bottom: 30px; /* Aumentamos el margen inferior */
+}
+
+/* Estilo del título dentro del header */
+header h1 {
+  color: white;
+  font-size: 2.5rem; /* Aumentamos el tamaño del título */
+  margin: 0; /* Elimina el margen superior */
+  text-align: center;
+  font-family: Arvo;
+}
+
+/* Estilo para el formulario de agendamiento */
+.form-container {
+  background-color: white;
+  padding: 30px; /* Aumentamos el padding para más espacio interno */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 30px; /* Aumentamos el margen inferior */
+}
+
+/* Estilo para las etiquetas del formulario */
+label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px; /* Aumentamos el margen inferior */
+}
+
+/* Estilo para los campos de entrada */
+input[type="date"],
+select {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 20px; /* Aumentamos el margen inferior entre los campos */
+  width: 100%;
+}
+
+/* Foco en los campos de entrada */
+input[type="date"]:focus,
+select:focus {
+  border-color: #007bff; /* Color azul */
+}
+
+/* Estilo para el botón de envío */
+.submit-button {
+  width: 100%;
+  padding: 14px; /* Aumentamos el padding para que sea más grande */
+  font-size: 1.2rem;
+  background-color: #007bff; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 35px; /* Añadimos un margen superior para separarlo de otros elementos */
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Azul oscuro al hacer hover */
+}
+
+/* Estilo para el resumen de la cita */
+.appointment-summary {
+  background-color: white;
+  padding: 30px; /* Aumentamos el padding para mayor espacio interno */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center; /* Centrar el contenido */
+  margin-top: 30px; /* Aumentamos el margen superior para separarlo de otros elementos */
+}
+
+/* Estilo para el mensaje de éxito "Cita Agendada Exitosamente" */
+.appointment-summary h2 {
+  color: #007bff; /* Color azul */
+  font-size: 1.5rem;
+  margin-bottom: 30px; /* Aumentamos el margen inferior */
+}
+
+/* Estilo para el contenido adicional de la cita */
+.appointment-summary p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px; /* Aumentamos el margen inferior */
+}
+
+/* Estilo para el botón de volver */
+.appointment-summary button {
+  width: 100%;
+  padding: 14px; /* Aumentamos el padding para que sea más grande */
+  font-size: 1.2rem;
+  background-color: #007bff; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 35px; /* Añadimos margen superior */
+}
+
+.appointment-summary button:hover {
+  background-color: #0056b3; /* Azul oscuro al hacer hover */
+}
+
+/* Estilos para el contenedor de la hora */
+select {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}

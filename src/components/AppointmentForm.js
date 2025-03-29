@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from './InputField';
 import SubmitButton from './SubmitButton';
+import '../Agendamiento.css'; // Importamos los estilos específicos
 
 const AppointmentForm = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm();
@@ -78,7 +79,7 @@ const AppointmentForm = ({ onSubmit }) => {
         </select>
       </div>
 
-      <SubmitButton label="Agendar" />
+      <button type="submit" className="submit-button">Agendar</button>
     </form>
   );
 };
