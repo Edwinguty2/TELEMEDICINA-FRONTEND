@@ -4,9 +4,14 @@ import axios from 'axios';
 const ProfilePage = () => {
   const [appointments, setAppointments] = useState([]);
   const [treatments, setTreatments] = useState([]);
-  const cedulaPaciente = '123456789'; // Reemplazar con la cédula del usuario autenticado
+  const cedulaPaciente = localStorage.getItem('cedula'); // Recupera la cédula del usuario autenticado desde localStorage
 
   useEffect(() => {
+    if (!cedulaPaciente) {
+      console.error('No se encontró la cédula del usuario autenticado.');
+      return;
+    }
+
     // Cargar citas
     axios.get(`http://localhost:8080/api/appointments?cedulaPaciente=${cedulaPaciente}`)
       .then(response => setAppointments(response.data))
@@ -21,6 +26,7 @@ const ProfilePage = () => {
   return (
     <div>
       <h1>Perfil</h1>
+      <p>Cédula del usuario: {cedulaPaciente}</p> {/* Muestra la cédula del usuario */}
       <div>
         <h2>Historial de Citas</h2>
         <ul>

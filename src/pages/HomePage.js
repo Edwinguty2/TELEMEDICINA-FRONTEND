@@ -4,15 +4,18 @@ import CardModule from '../components/CardModule';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const cedula = localStorage.getItem('cedula'); // Recupera la cédula del usuario logueado
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Elimina el token de autenticación
+    localStorage.removeItem('cedula'); // Elimina la cédula del usuario
     navigate('/login'); // Redirige al login
   };
 
   return (
     <div className="home-container">
       <h1>Bienvenido a la Oficina Virtual</h1>
+      <p>Cédula del usuario: {cedula}</p> {/* Muestra la cédula */}
       <button className="logout-btn" onClick={handleLogout}>
         Cerrar sesión
       </button>
