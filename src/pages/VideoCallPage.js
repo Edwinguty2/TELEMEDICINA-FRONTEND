@@ -1,70 +1,76 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // Importa el hook useNavigate
+import { useNavigate } from 'react-router-dom';
+import './VideoCallPage.css';
 
 const VideoCallPage = () => {
   const [appointments, setAppointments] = useState([]);
   const [upcomingAppointments, setUpcomingAppointments] = useState([]);
-  
-  // Obtener la cédula del usuario autenticado desde localStorage
-  const cedula = localStorage.getItem('cedula'); 
-
-  // Usar el hook useNavigate para navegar a otra página
+  const cedulaPaciente = localStorage.getItem('cedula');
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Llamar a la API para obtener todas las citas
-    const fetchAppointments = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/api/appointments');
+    if (!cedulaPaciente) {
+      console.error('No se encontró la cédula del usuario autenticado.');
+      return;
+    }
+
+    // Obtener citas para el paciente
+    axios.get(`http://localhost:8080/api/appointments?cedulaPaciente=${cedulaPaciente}`)
+      .then(response => {
         setAppointments(response.data);
+      })
+      .catch(error => console.error('Error al cargar citas:', error));
+  }, [cedulaPaciente]);
 
-        // Filtrar las citas que están próximas y cuyo estado es true
-        const now = new Date();
-        const filteredAppointments = response.data.filter(appointment => {
-          const appointmentDate = new Date(appointment.fechaHora);
-          return appointment.estado && appointmentDate > now && appointment.cedulaPaciente === cedula;
-        });
+  useEffect(() => {
+    // Filtrar citas próximas
+    const now = new Date();
+    const upcoming = appointments.filter(appointment => {
+      const appointmentDate = new Date(appointment.fechaHora);
+      return appointment.estado && appointmentDate > now;
+    });
+    setUpcomingAppointments(upcoming);
+  }, [appointments]);
 
-        setUpcomingAppointments(filteredAppointments);
-      } catch (error) {
-        console.error('Error al obtener las citas:', error);
-      }
-    };
-
-    fetchAppointments();
-  }, [cedula]);
-
-  const handleJoinAppointment = (id) => {
-    // Aquí podrías manejar la lógica para unirse a la cita, como abrir un videochat
-    navigate('/video-call-sim');
-  };
-
-  const handleGoHome = () => {
-    // Redirige al Home
-    navigate('/'); // Esto te lleva al Home
+  const handleJoinCall = (appointmentId) => {
+    // Función para unirse a la videollamada (simulada aquí)
+    console.log(`Unirse a la llamada con la cita ID: ${appointmentId}`);
+    // Lógica para unirse a la videollamada (redireccionar, abrir WebRTC, etc.)
   };
 
   return (
-    <div>
-      <h1>Bienvenido a tu Panel de Citas</h1>
-      <h2>Citas próximas</h2>
-      {upcomingAppointments.length > 0 ? (
-        <ul>
-          {upcomingAppointments.map(appointment => (
-            <li key={appointment.id}>
-              <p>Cita para el {appointment.fechaHora}</p>
-              <button onClick={() => handleJoinAppointment(appointment.id)}>
-                Unirse a la cita
-              </button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No tienes citas próximas.</p>
-      )}
-      {/* Botón para regresar al Home */}
-      <button onClick={handleGoHome}>Volver al Home</button>
+    <div className="video-call-container">
+      <header>
+        <h1>Próximas Citas para Videollamada</h1>
+      </header>
+      
+      <div className="appointments-box">
+        {upcomingAppointments.length > 0 ? (
+          <div className="card-list">
+            {upcomingAppointments.map(appointment => (
+              <div key={appointment.id} className="card">
+                <div className="card-header">
+                  <h3>Cita con el Dr. Juan Pérez</h3>
+                  <p>{new Date(appointment.fechaHora).toLocaleDateString()} - {new Date(appointment.fechaHora).toLocaleTimeString()}</p>
+                </div>
+                <div className="card-body">
+                  <p><strong>Estado:</strong> {appointment.estado ? 'Próxima' : 'Cancelada'}</p>
+                  <button className="join-button" onClick={() => handleJoinCall(appointment.id)}>
+                    Unirse a la llamada
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No tienes citas próximas para videollamadas.</p>
+        )}
+      </div>
+
+      <button className="back-button" onClick={() => navigate('/')}>
+        ← Volver al Menú Principal
+      </button>
     </div>
   );
 };
