@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
+import styles from './LoginPage.module.css';
 import axios from 'axios';
 
 const LoginPage = () => {
@@ -9,19 +10,22 @@ const LoginPage = () => {
   const handleLoginSubmit = async (data) => {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', data);
-      const { token, cedula } = response.data; // Extrae el token y la cédula del backend
-      localStorage.setItem('authToken', token); // Guarda el token en localStorage
-      localStorage.setItem('cedula', cedula); // Guarda la cédula en localStorage
-      navigate('/'); // Redirige al home
+      const { token, cedula } = response.data;
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('cedula', cedula);
+      navigate('/');
     } catch (error) {
       alert('Error en el login');
     }
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <LoginForm onSubmit={handleLoginSubmit} />
+    <div className={styles.loginPageContainer}>
+      <div className={styles.loginPageBox}>
+        <h1>Iniciar Sesión</h1>
+        <p>Ingrese sus credenciales para acceder a su cuenta</p>
+        <LoginForm onSubmit={handleLoginSubmit} />
+      </div>
     </div>
   );
 };
