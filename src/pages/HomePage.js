@@ -6,10 +6,8 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Eliminar datos de autenticación almacenados
-    localStorage.removeItem('authToken'); // Si usas un token
-    localStorage.removeItem('user'); // Si guardas información del usuario
-    navigate('/login'); // Redirigir al login
+    localStorage.removeItem('authToken'); // Elimina el token de autenticación
+    navigate('/login'); // Redirige al login
   };
 
   return (

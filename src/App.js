@@ -3,19 +3,48 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/LoginPage';
 import AppointmentPage from './pages/AppointmentPage';
-import ProfilePage from './pages/ProfilePage'; 
-import VideoCallPage from './pages/VideoCallPage'; 
-import HomePage from './pages/HomePage';  
+import ProfilePage from './pages/ProfilePage';
+import VideoCallPage from './pages/VideoCallPage';
+import HomePage from './pages/HomePage';
+import PrivateRoute from './components/PrivateRoute'; // Importa el componente de protección
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/appointments" element={<AppointmentPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/video-call" element={<VideoCallPage />} />
-        <Route path="/" exact element={<HomePage />} />
+        <Route
+          path="/appointments"
+          element={
+            <PrivateRoute>
+              <AppointmentPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/video-call"
+          element={
+            <PrivateRoute>
+              <VideoCallPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </Router>
   );

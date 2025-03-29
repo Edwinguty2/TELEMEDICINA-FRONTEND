@@ -9,8 +9,9 @@ const LoginPage = () => {
   const handleLoginSubmit = async (data) => {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', data);
-      // Si el login es exitoso, redirige a la página de citas
-      navigate('/appointments');
+      const { token } = response.data; // Asegúrate de que el backend devuelva un token
+      localStorage.setItem('authToken', token); // Guarda el token en localStorage
+      navigate('/'); // Redirige al home
     } catch (error) {
       alert('Error en el login');
     }
