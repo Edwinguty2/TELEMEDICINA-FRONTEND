@@ -9,8 +9,9 @@ const LoginPage = () => {
   const handleLoginSubmit = async (data) => {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', data);
-      const { token } = response.data; // Asegúrate de que el backend devuelva un token
+      const { token, cedula } = response.data; // Extrae el token y la cédula del backend
       localStorage.setItem('authToken', token); // Guarda el token en localStorage
+      localStorage.setItem('cedula', cedula); // Guarda la cédula en localStorage
       navigate('/'); // Redirige al home
     } catch (error) {
       alert('Error en el login');
