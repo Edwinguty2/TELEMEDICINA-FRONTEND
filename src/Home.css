@@ -31,7 +31,7 @@ header h1 {
 /* Estilo para el párrafo con la cédula del usuario */
 .home-container p {
   font-size: 1.1rem;
-  color: #555;
+  color: #ffe8e8;
   margin-bottom: 20px;
 }
 
@@ -100,4 +100,32 @@ header h1 {
 
 .card-module a:hover {
   background-color: #0056b3; /* Azul oscuro al hacer hover */
+}
+
+/* Estilos para la notificación */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #36f13c; /* Color de fondo verde */
+  color: white;
+  padding: 10px;  
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  z-index: 1000; /* Asegura que se muestre encima de otros elementos */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.notification p {
+  margin: 0;
 }
